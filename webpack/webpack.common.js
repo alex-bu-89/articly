@@ -17,7 +17,7 @@ module.exports = {
     optimization: {
         splitChunks: {
             name: 'vendor',
-            chunks: "initial"
+            chunks: 'initial'
         }
     },
     module: {

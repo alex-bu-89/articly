@@ -1,8 +1,7 @@
 {
   "manifest_version": 2,
-
-  "name": "Chrome Extension TypeScript Starter",
-  "description": "Chrome Extension, TypeScript, Visual Studio Code",
+  "name": "Articly",
+  "description": "Shows german arcticles der die or das",
   "version": "1.0",
 
   "options_ui": {
