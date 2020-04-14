@@ -1,7 +1,7 @@
 {
-  "name": "chrome-extension-typescript-starter",
-  "version": "1.0.0",
-  "description": "chrome-extension-typescript-starter",
+  "name": "articly",
+  "version": "0.0.1",
+  "description": "articly",
   "main": "index.js",
   "scripts": {
     "start": "webpack --config webpack/webpack.dev.js --watch",
@@ -9,20 +9,16 @@
     "clean": "rimraf dist",
     "test": "npx jest"
   },
-  "author": "",
+  "author": "Alexander Buyanov",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
+    "url": "https://github.com/alex-bu-89/articly.git"
   },
-  "dependencies": {
-    "jquery": "^3.5.0",
-    "moment": "~2.24.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/chrome": "0.0.104",
     "@types/jest": "^25.2.1",
-    "@types/jquery": "^3.3.35",
     "copy-webpack-plugin": "^5.1.1",
     "jest": "^25.4.0",
     "rimraf": "^3.0.2 ",
