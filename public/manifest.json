@@ -17,16 +17,15 @@
                 "<all_urls>"
             ],
             "js": [
-                "js/vendor.js",
                 "js/content_script.js"
             ]
         }
     ],
     "background": {
         "scripts": [
-            "js/vendor.js",
             "js/background.js"
-        ]
+        ],
+        "persistent": false
     },
     "permissions": [
         "storage",
