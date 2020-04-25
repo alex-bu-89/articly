@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Articly",
     "description": "Shows german arcticles der die or das",
-    "version": "1.0",
+    "version": "0.0.1",
     "options_ui": {
         "page": "options.html",
         "chrome_style": true
@@ -29,6 +29,7 @@
     },
     "permissions": [
         "storage",
+        "activeTab",
         "<all_urls>"
     ]
 }
