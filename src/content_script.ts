@@ -1,15 +1,28 @@
-import config from './config'
-console.log('------ RUN ARTICLY', config);
+import config from './config';
+import { getSelectionHTML } from './utils';
 
-// import { getSelectionHTML } from './utils'
+function translateSelection(selection: string, callback: (payload: any) => void) {
+    chrome.runtime.sendMessage(
+        { type: 'translateSelection', payload: { selection } },
+        (response) => {
+            console.log(response.payload);
+            callback ?? callback(response.payload)
+        }
+    );
+}
 
-// chrome.browserAction.onClicked.addListener((tab) => {
-//     const text = getSelectionHTML();
-//     console.log('------', text);
-//     chrome.tabs.sendRequest(tab.id, { method: 'getSelection' }, (response) => {
-//         console.log('------ getSelection response');
-//     });
-// });
+/**
+ * Init ondblclick event
+ */
+document.addEventListener('mouseup', (event) => {
+    const selection = getSelectionHTML();
+    console.log('------, test', selection);
+
+    translateSelection(selection, (payload) => {
+        console.log('------ response', payload);
+    });
+
+}, false);
 
 // document.body.addEventListener('')
 
