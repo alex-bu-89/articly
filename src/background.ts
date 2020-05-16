@@ -1,14 +1,33 @@
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+import config from './config';
+import { handleErrors } from './utils';
+
+function translateSelection(selection: string, lang: string = 'en-ru'): any {
+    const apiUrl = `${config.TRANSLATION_API.HOST}?key=${config.TRANSLATION_API.API_KEY}&lang=${lang}&text=${selection}`;
+
+    return fetch(apiUrl)
+        .then(handleErrors)
+        .then((response) => {
+            return response.json();
+        })
+        .catch((err) => {
+            throw err;
+        });
+}
+
+chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     switch (request.type) {
-        case 'translateSelection':
-            sendResponse({
-                payload: {
-                    message: 'foobar',
-                },
+        case 'getTranslation':
+            const { selection } = request.payload;
+
+            translateSelection(selection, 'de-ru').then(() => {
+                sendResponse({
+                    payload: 'foo',
+                });
             });
-            break;
+
+            return true;
         default:
             console.warn('[Articly] - unknown request');
-            break;
+            return;
     }
 });

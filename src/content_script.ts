@@ -1,10 +1,11 @@
 import config from './config';
 import { getSelectionHTML } from './utils';
 
-function translateSelection(selection: string, callback: (payload: any) => void) {
+function getTranslation(selection: string, callback: (payload: any) => void) {
     chrome.runtime.sendMessage(
-        { type: 'translateSelection', payload: { selection } },
+        { type: 'getTranslation', payload: { selection } },
         (response) => {
+            console.log('------ lol', response);
             callback && callback(response.payload)
         }
     );
@@ -20,7 +21,7 @@ document.addEventListener('mouseup', (event) => {
 
     console.log('------ selection', selection);
 
-    translateSelection(selection, (payload) => {
+    getTranslation(selection, (payload) => {
         console.log('------ response', payload);
     });
 
