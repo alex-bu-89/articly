@@ -22,6 +22,7 @@
     "@types/chrome": "0.0.114",
     "@types/jest": "^25.2.3",
     "copy-webpack-plugin": "^6.0.1",
+    "dotenv-webpack": "^1.8.0",
     "jest": "^26.0.1",
     "rimraf": "^3.0.2 ",
     "ts-jest": "^26.0.0",

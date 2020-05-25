@@ -1,3 +1,6 @@
+import config from './config'
+console.log('------ RUN ARTICLY', config);
+
 // import { getSelectionHTML } from './utils'
 
 // chrome.browserAction.onClicked.addListener((tab) => {
