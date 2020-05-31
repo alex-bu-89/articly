@@ -5,7 +5,8 @@ function getTranslation(selection: string, callback: (payload: any) => void) {
     chrome.runtime.sendMessage(
         { type: 'getTranslation', payload: { selection } },
         (response) => {
-            callback && callback(response.payload)
+            console.log('------', response);
+            // callback && callback(response.payload)
         }
     );
 }

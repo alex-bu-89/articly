@@ -38,7 +38,10 @@ module.exports = {
         new Dotenv(),
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
         new CopyPlugin({
-            patterns: [{ from: '.', to: '../', context: 'public' }],
+            patterns: [
+                { from: '.', to: '../', context: 'public' },
+                { from: path.resolve(__dirname, '../hot-reload.js'), to: '../js/' }
+            ],
         }),
     ],
 };

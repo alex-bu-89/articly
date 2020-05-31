@@ -15,6 +15,7 @@ function translateSelection(selection: string, lang: string = 'en-ru'): any {
 }
 
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+
     switch (request.type) {
         case 'getTranslation':
             const { selection } = request.payload;
