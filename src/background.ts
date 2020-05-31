@@ -14,15 +14,15 @@ function translateSelection(selection: string, lang: string = 'en-ru'): any {
         });
 }
 
-chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     switch (request.type) {
         case 'getTranslation':
             const { selection } = request.payload;
 
-            translateSelection(selection, 'de-ru').then(() => {
+            translateSelection(selection, 'de-ru').then((result: any) => {
                 sendResponse({
-                    payload: 'foo',
+                    payload: result,
                 });
             });
 
