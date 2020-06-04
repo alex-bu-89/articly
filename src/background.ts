@@ -2,7 +2,7 @@ import config from './config';
 import { handleErrors } from './utils';
 
 function translateSelection(selection: string, lang: string = 'en-ru'): any {
-    const apiUrl = `${config.TRANSLATION_API.HOST}?key=${config.TRANSLATION_API.API_KEY}&lang=${lang}&text=${selection}`;
+    const apiUrl = `${config.TRANSLATION_API.HOST}?key=${config.TRANSLATION_API.API_KEY}&lang=${lang}&flags=4&text=${selection}`;
 
     return fetch(apiUrl)
         .then(handleErrors)
@@ -15,7 +15,6 @@ function translateSelection(selection: string, lang: string = 'en-ru'): any {
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-
     switch (request.type) {
         case 'getTranslation':
             const { selection } = request.payload;
