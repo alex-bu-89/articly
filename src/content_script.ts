@@ -1,4 +1,4 @@
-import config from './config';
+import './content_script.scss';
 import { getSelectionHTML } from './utils';
 
 function getTranslation(selection: string, callback: (payload: any) => void) {
@@ -10,11 +10,11 @@ function getTranslation(selection: string, callback: (payload: any) => void) {
     );
 }
 
-function showPopup(event: MouseEvent) {
+function showPopup(event: MouseEvent, translations: any) {
     const html = document.createElement('div');
-    html.setAttribute('id', 'articly-trans-popup');
+    html.setAttribute('id', 'articly-trans');
     html.setAttribute('style', `position: absolute; left: ${event.pageX}px; top: ${event.pageY}px`);
-    html.innerHTML = `<p>hello world</p>`;
+    html.innerHTML = `<p></p>`;
     document.body.appendChild(html);
 }
 
@@ -28,7 +28,7 @@ document.addEventListener('mouseup', (event: MouseEvent) => {
 
     getTranslation(selection, (payload) => {
         console.log('------ translation', selection, payload);
-        showPopup(event);
+        showPopup(event, payload);
     });
 
 }, false);

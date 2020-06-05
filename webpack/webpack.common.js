@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const srcDir = '../src/';
 
 module.exports = {
@@ -28,6 +29,16 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    // Translates CSS into CommonJS
+                    'css-loader',
+                    // Compiles Sass to CSS
+                    'sass-loader',
+                ],
+            },
         ],
     },
     resolve: {
@@ -37,6 +48,12 @@ module.exports = {
         // exclude locale files in moment
         new Dotenv(),
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: '../css/content.css',
+            chunkFilename: '../css/[id].css',
+        }),
         new CopyPlugin({
             patterns: [
                 { from: '.', to: '../', context: 'public' },

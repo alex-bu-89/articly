@@ -4,8 +4,8 @@
   "description": "articly",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack/webpack.dev.js --watch",
-    "build": "webpack --config webpack/webpack.prod.js",
+    "start": "npm run clean && webpack --config webpack/webpack.dev.js --watch",
+    "build": "npm run clean && webpack --config webpack/webpack.prod.js",
     "clean": "rimraf dist",
     "test": "npx jest"
   },
@@ -22,14 +22,19 @@
     "@types/chrome": "0.0.114",
     "@types/jest": "^25.2.3",
     "copy-webpack-plugin": "^6.0.1",
+    "css-loader": "^3.5.3",
     "dotenv-webpack": "^1.8.0",
     "jest": "^26.0.1",
+    "mini-css-extract-plugin": "^0.9.0",
     "rimraf": "^3.0.2 ",
+    "sass": "^1.26.8",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
     "ts-jest": "^26.1.0",
     "ts-loader": "^7.0.5",
     "tslint": "^6.1.2",
     "typescript": "~3.9.3",
-    "webpack": "~4.43.0",
+    "webpack": "^4.43.0",
     "webpack-cli": "~3.3.11",
     "webpack-merge": "~4.2.2"
   }
