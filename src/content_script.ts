@@ -14,7 +14,7 @@ function showPopup(event: MouseEvent, translations: any) {
     const html = document.createElement('div');
     html.setAttribute('id', 'articly-trans');
     html.setAttribute('style', `position: absolute; left: ${event.pageX}px; top: ${event.pageY}px`);
-    html.innerHTML = `<p></p>`;
+    html.innerHTML = `<p>${translations.toString()}</p>`;
     document.body.appendChild(html);
 }
 
